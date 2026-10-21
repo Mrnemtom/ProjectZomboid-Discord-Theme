@@ -1,0 +1,89 @@
+/**
+ * @name Project Zomboid
+ * @author ChatGPT
+ * @version 1.0.0
+ * @description Project Zomboid inspired transparent Discord theme.
+ */
+
+/*
+ IMPORTANT:
+ A Discord/Equicord theme loaded from a URL cannot use an image that only exists on your PC.
+ Replace YOUR_DIRECT_IMAGE_URL below with a PUBLIC DIRECT URL to the uploaded PNG
+ (for example a raw GitHub image URL).
+*/
+
+:root {
+  --pz-background: url("YOUR_DIRECT_IMAGE_URL");
+  --pz-panel: rgba(8, 12, 16, 0.48);
+  --pz-panel-strong: rgba(8, 12, 16, 0.68);
+  --pz-hover: rgba(80, 130, 180, 0.14);
+  --pz-selected: rgba(80, 145, 210, 0.20);
+}
+
+/* Main background */
+body,
+#app-mount {
+  background: #000 var(--pz-background) center center / contain no-repeat fixed !important;
+}
+
+/* Make Discord's main layers transparent */
+#app-mount > div,
+[class*="app_"],
+[class*="bg_"],
+[class*="layers_"],
+[class*="layer_"],
+[class*="base_"],
+[class*="content_"],
+[class*="chat_"],
+[class*="chatContent_"],
+[class*="page_"],
+[class*="container_"],
+[class*="sidebar_"],
+[class*="members_"],
+[class*="membersWrap_"],
+[class*="scroller_"],
+[class*="panels_"],
+[class*="privateChannels_"],
+[class*="peopleColumn_"] {
+  background-color: transparent !important;
+}
+
+/* Readability panels: dark, slightly blue, no blur */
+[class*="sidebar_"],
+[class*="membersWrap_"],
+[class*="panels_"],
+[class*="contentRegion_"],
+[class*="standardSidebarView_"] {
+  background: var(--pz-panel) !important;
+  backdrop-filter: none !important;
+}
+
+/* Chat area stays more transparent so the artwork remains visible */
+[class*="chatContent_"] {
+  background: rgba(5, 8, 11, 0.24) !important;
+  backdrop-filter: none !important;
+}
+
+/* Message box */
+[class*="channelTextArea_"],
+[class*="scrollableContainer_"] {
+  background: var(--pz-panel-strong) !important;
+  backdrop-filter: none !important;
+}
+
+/* Hover/selected elements */
+[class*="message_"]:hover,
+[class*="interactive_"]:hover,
+[class*="channel_"]:hover {
+  background: var(--pz-hover) !important;
+}
+
+[class*="modeSelected_"],
+[class*="selected_"] {
+  background: var(--pz-selected) !important;
+}
+
+/* Remove blur globally */
+#app-mount * {
+  backdrop-filter: none !important;
+}
